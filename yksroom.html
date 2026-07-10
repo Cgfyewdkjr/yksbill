@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YKS | Эра Баланса</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;700&display=swap');
+        
+        body {
+            background-color: #030303;
+            color: #e5e5e5;
+            font-family: 'Lora', serif;
+            overflow-x: hidden;
+        }
+
+        .font-sans { font-family: 'Montserrat', sans-serif; }
+        .font-title { font-family: 'Cinzel', serif; }
+
+        /* Живой прогресс-бар (Золотая бегущая волна) */
+        #wave-progress {
+            position: fixed; top: 0; left: 0; width: 100%; height: 5px; z-index: 100;
+            background: linear-gradient(90deg, #D4AF37, #1e3a8a, #D4AF37, #1e3a8a);
+            background-size: 300% 100%;
+            animation: waveFlow 4s infinite linear;
+            box-shadow: 0 2px 15px rgba(212,175,55,0.4);
+        }
+        @keyframes waveFlow { 0% { background-position: 300% 0; } 100% { background-position: 0 0; } }
+
+        /* ГУСТОЙ ПАР ИЗ ПОДИКА ПО БОКАМ И СВЕРХУ */
+        .steam-container {
+            position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden;
+        }
+        .smoke-cloud {
+            position: absolute; background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(30,58,138,0.04) 50%, transparent 80%);
+            border-radius: 50%; filter: blur(60px); animation: smokeDrift 12s infinite alternate ease-in-out;
+        }
+        /* Сверху */
+        .smoke-top-1 { top: -10%; left: 10%; width: 60%; height: 35%; animation-delay: 0s; }
+        .smoke-top-2 { top: -15%; right: 15%; width: 50%; height: 40%; animation-delay: -3s; }
+        /* По бокам */
+        .smoke-left { left: -20%; top: 25%; width: 45%; height: 60%; animation-delay: -5s; }
+        .smoke-right { right: -20%; top: 35%; width: 45%; height: 60%; animation-delay: -2s; }
+
+        @keyframes smokeDrift {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.4; }
+            50% { transform: translate(3%, 4%) scale(1.15) rotate(45deg); opacity: 0.7; }
+            100% { transform: translate(-3%, -2%) scale(0.9) rotate(-45deg); opacity: 0.3; }
+        }
+
+        /* Премиум Буквица */
+        .drop-cap::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 4.8rem; float: left; margin-right: 0.85rem; line-height: 3.8rem;
+            color: #D4AF37; font-weight: 800;
+            text-shadow: 0 0 25px rgba(212,175,55,0.4);
+        }
+
+        /* Элитный стеклянный эффект */
+        .glass-panel {
+            background: rgba(15, 15, 15, 0.45);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-[#D4AF37] selection:text-black">
+
+    <!-- Золотая линия сверху -->
+    <div id="wave-progress"></div>
+
+    <!-- Многослойный дым от вейпа -->
+    <div class="steam-container">
+        <div class="smoke-cloud smoke-top-1"></div>
+        <div class="smoke-cloud smoke-top-2"></div>
+        <div class="smoke-cloud smoke-left"></div>
+        <div class="smoke-cloud smoke-right"></div>
+    </div>
+
+    <!-- Главная структура -->
+    <article class="max-w-3xl mx-auto px-6 pt-32 pb-24 relative z-10">
+        
+        <!-- Заголовок -->
+        <header class="text-center mb-20">
+            <a href="index.html" class="font-sans text-[10px] uppercase tracking-[0.4em] text-white/30 hover:text-[#D4AF37] transition duration-300">
+                ← Вернуться в экосистему YKS
+            </a>
+            <h1 class="font-title text-4xl md:text-7xl font-bold mt-12 mb-6 tracking-wide leading-none">
+                Бег на месте:<br>
+                <span class="text-[#D4AF37] lowercase italic font-light">Почему мы разучились просто дышать?</span>
+            </h1>
+            <div class="font-sans flex justify-center items-center gap-4 text-xs text-white/30 tracking-widest uppercase">
+                <span>ЯрКуСиК</span>
+                <span>•</span>
+                <span>7 мин глубокого погружения</span>
+            </div>
+        </header>
+
+        <!-- Текст -->
+        <div class="text-md md:text-[19px] leading-relaxed text-white/80 space-y-10 font-light tracking-wide">
+            
+            <p class="drop-cap">
+                алют, моя банда. Сегодня я хочу поговорить с вами без дешёвой мишуры. Без наигранных улыбок и заученных фраз о "успешном успехе". Мы поговорим о том, о чём в современном обществе принято стыдливо молчать, пряча трясущиеся от переутомления руки в карманы дорогих брендовых шмоток.
+            </p>
+
+            <p>
+                Недавно я поймал себя на грани. Мой мозг работал как разогнанный, закипающий процессор ноута, который кулеры уже физически не способны охладить. Бессонные ночи, создание игр, дизайн мерча, вечный поиск идей для Telegram... Я превратился в белку в колесе, которая бежит изо всех сил, чтобы просто... стоять на одном месте. Знакомо вам это чувство? Когда ты ложишься в кровать безумно уставшим, но твой разум продолжает лихорадочно крутить шестерёнки, перебирая задачи на завтра. Ты не спишь. Ты просто продолжаешь свой марафон в темноте.
+            </p>
+
+            <!-- Интерактивная Цитата -->
+            <blockquote class="border-l-2 border-[#D4AF37] pl-8 my-14 italic text-white leading-relaxed text-lg md:text-xl font-normal">
+                «Жизнь — это не безумный спринт, где побеждает тот, кто прибежал к финишу первым, упав на финише без сознания и пульса. Жизнь — это пешая прогулка. Если бежать слишком быстро, ты упустишь всё: красоту заката, тепло рук близких людей и сам вкус победы».
+            </blockquote>
+
+            <p>
+                Современный мир провернул с нашим поколением самую изящную и жестокую манипуляцию. Используя приёмы чёрной психологии, крупные корпорации и соцсети внушили нам культ вечной продуктивности. Тебя ловят на крючок «недостаточности». Тебе шепчут: <span class="italic text-white font-medium">«Работай, пока они спят. Создавай. Зарабатывай. Не стой на месте»</span>. В итоге, если ты решаешь просто отдохнуть один вечер, внутри просыпается мерзкий, грызущий голос: <span class="text-rose-400">"Эй, ты теряешь время! Твои конкуренты сейчас идут вперёд"</span>. 
+            </p>
+
+            <h3 class="font-title text-xl md:text-3xl font-bold text-white mt-16 mb-4 tracking-wider uppercase">
+                ГРАФИКИ СОСТОЯНИЯ: ТВОЙ РАЗУМ ПОД МИКРОСКОПОМ
+            </h3>
+            
+            <p class="text-sm text-gray-450">
+                Я визуализировал эти два состояния. Переключай вкладки ниже, чтобы наглядно увидеть, как именно гонка разрушает твой потенциал и как баланс умножает твои силы.
+            </p>
+
+            <!-- ИНТАКТИВНЫЙ ИНСТРУМЕНТ: СРАВНЕНИЕ ГРАФИКОВ -->
+            <div class="glass-panel p-8 rounded-3xl my-10 font-sans">
+                <div class="flex justify-center gap-4 mb-8">
+                    <button onclick="toggleGraph('graph-chaos')" id="tab-chaos" class="px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-rose-500/30 text-rose-400 bg-rose-500/5 rounded-xl transition duration-300">
+                        Хаос (Токсичный бег)
+                    </button>
+                    <button onclick="toggleGraph('graph-balance')" id="tab-balance" class="px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-gray-800 text-gray-500 rounded-xl transition duration-300">
+                        Баланс (Сила YKS)
+                    </button>
+                </div>
+
+                <!-- График 1: Хаос -->
+                <div id="graph-chaos" class="graph-content block">
+                    <div class="flex justify-between text-xs text-white/40 mb-2">
+                        <span>Напряжение: 98%</span>
+                        <span class="text-rose-500">Эффективность: 15% (Выгорание)</span>
+                    </div>
+                    <!-- Имитация пульсирующего хаотичного графика через SVG -->
+                    <svg class="w-full h-32" viewBox="0 0 400 100">
+                        <path d="M 0 80 Q 20 10 40 90 T 80 20 T 120 95 T 160 10 T 200 90 T 240 10 T 280 95 T 320 5 T 360 90 T 400 50" fill="none" stroke="#ef4444" stroke-width="2.5" class="animate-pulse"></path>
+                    </svg>
+                </div>
+
+                <!-- График 2: Баланс -->
+                <div id="graph-balance" class="graph-content hidden">
+                    <div class="flex justify-between text-xs text-white/40 mb-2">
+                        <span>Фокус: 100%</span>
+                        <span class="text-amber-400">Эффективность: 95% (Поток)</span>
+                    </div>
+                    <!-- Имитация идеального волнового графика -->
+                    <svg class="w-full h-32" viewBox="0 0 400 100">
+                        <path d="M 0 50 Q 50 15 100 50 T 200 50 T 300 50 T 400 50" fill="none" stroke="#D4AF37" stroke-width="3" stroke-dasharray="8 4"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <h3 class="font-title text-xl md:text-3xl font-bold text-white mt-16 mb-4 tracking-wider uppercase">
+                КАК СТАТЬ УСПЕШНЫМ, НО НЕ СЖЕЧЬ СЕБЯ: СВОД ПРАВИЛ
+            </h3>
+
+            <p>
+                Я понял главное: <b>сила не в том, чтобы бежать без остановки. Сила в умении управлять своим импульсом.</b> Вот мой личный манифест, как строить империю и оставаться сильным:
+            </p>
+
+            <ul class="space-y-4 text-white/90 font-sans text-sm md:text-base list-disc list-inside">
+                <li><span class="gold-text font-bold">Правило стратегической тишины:</span> Минимум 1 час в день проводи без телефона, музыки и внешнего шума. Дай мозгу выгрузить фоновые процессы.</li>
+                <li><span class="gold-text font-bold">Фокус вместо паники:</span> 2 часа глубокой, концентрированной работы стоят 10 часов суетливого дерганья на ходу. Убери раздражители, делай одно дело, но идеально.</li>
+                <li><span class="gold-text font-bold">Уважай своё тело:</span> Твоя продуктивность — это чистая химия. Без сна, нормальной еды и воды твоя продуктивность падает до нуля, даже если ты сидишь за ноутом 20 часов подряд.</li>
+            </ul>
+
+            <p>
+                Я разрешил себе остановиться. И, черт возьми, это было самым лучшим решением. Мои мысли очистились, ко мне вернулась былая страсть к творчеству, и мы готовы разрывать индустрию с совершенно новыми силами. 
+            </p>
+
+        </div>
+
+        <!-- Секция Обсуждения (Кнопка в ТГ бот) -->
+        <section class="mt-24 p-10 glass-panel rounded-[2rem] border border-[#D4AF37]/20 text-center font-sans">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-bold block mb-3">Прямой диалог</span>
+            <h4 class="text-xl md:text-3xl font-bold uppercase mb-4">Жду твоё мнение в чате, бро</h4>
+            <p class="text-gray-400 text-sm max-w-md mx-auto mb-8 font-light">
+                Расскажи, как ты справляешься с выгоранием? Напиши мне лично в наш бот поддержки. Я читаю каждое сообщение.
+            </p>
+            <a href="https://t.me/business_barif_support_bot" target="_blank" class="inline-block bg-[#D4AF37] text-black hover:bg-white px-10 py-4 text-xs uppercase tracking-widest font-extrabold transition duration-500 rounded-xl shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                Написать ЯрКуСиКу в Bot
+            </a>
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto py-12 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] z-10 relative font-sans">
+        © YKS x ЯрКуСиК. Разговор по душам. 2026.
+    </footer>
+
+    <!-- Логика переключения графиков -->
+    <script>
+        // Прогресс-бар считывания скролла страницы
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('wave-progress').style.width = scrolled + '%';
+        });
+
+        // Интерактивное переключение вкладок графиков
+        function toggleGraph(graphId) {
+            document.querySelectorAll('.graph-content').forEach(g => {
+                g.classList.add('hidden');
+                g.classList.remove('block');
+            });
+            
+            document.getElementById(graphId).classList.remove('hidden');
+            document.getElementById(graphId).classList.add('block');
+
+            // Смена стилей кнопок
+            const btnChaos = document.getElementById('tab-chaos');
+            const btnBalance = document.getElementById('tab-balance');
+
+            if (graphId === 'graph-chaos') {
+                btnChaos.className = "px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-rose-500/30 text-rose-400 bg-rose-500/5 rounded-xl transition duration-300";
+                btnBalance.className = "px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-gray-800 text-gray-500 rounded-xl transition duration-300";
+            } else {
+                btnChaos.className = "px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-gray-800 text-gray-500 rounded-xl transition duration-300";
+                btnBalance.className = "px-5 py-2.5 text-xs font-bold uppercase tracking-widest border border-amber-500/30 text-amber-400 bg-amber-500/5 rounded-xl transition duration-300";
+            }
+        }
+    </script>
+</body>
+</html>
